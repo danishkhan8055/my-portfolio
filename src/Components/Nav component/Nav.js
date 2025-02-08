@@ -1,7 +1,7 @@
 import "./Nav.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useState } from "react";
-// import { FaYoutube , FaInstagramSquare, FaGithub} from "react-icons/fa";
+
 
 
 const Nav = () =>{
