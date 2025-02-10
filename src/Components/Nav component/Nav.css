@@ -1,29 +1,4 @@
-/* .main-div{
-    display: inline-flex;
-    column-gap: 100px;
-    border : 2px solid black;
-    padding-right: 24px;
-}
 
-
-
-.unorderlist{
-    display: inline-flex;
-    margin: 10px 12px 0 180px;
-    justify-content: space-between;
-    column-gap: 70px;
-    float: right;
-    font-size :large;
-    font-stretch: expanded;
-    font-variant: petite-caps; 
-    }
-    .font-div{
-        display: flex;
-        gap: 30px;
-        margin: 15px 0 0 120px;
-        font-size: larger;
-        float: right;
-        } */
         .heading{
             
             font-size: 30px;
@@ -70,4 +45,52 @@
 .button{
     text-decoration: none;
     color: white;
+}
+.nav-mob-close{
+    display: none;
+}
+.nav-mob-open{
+    display: none;
+}
+
+@media(max-width : 768px){
+    .navbar{
+        margin: 20px 50px;
+    }
+    .nav-connect{
+        display: none;
+    }
+    .nav-mob-open{
+        display: block;
+        position: fixed;
+        right: 30px;
+        top: 10px;
+    }
+    .nav-mob-close{
+        display: block;
+        position: relative;
+        top: 30px;
+        left: 290px;
+        width: 30px;
+    }
+    .nav-menu{
+        position: fixed;
+        flex-direction: column;
+        align-items: start;
+        top: 0;
+        gap: 30px;
+        background-color: #1F0016;
+        width: 350px;
+        height: 100%;
+        z-index: 2;
+        transition: right 0.5s;
+        right: -350px;
+    }
+    .nav-menu li {
+        font-size: 30px;
+        padding-left: 100px;
+        flex-direction: row;
+        gap: 20px;
+    }
+
 }

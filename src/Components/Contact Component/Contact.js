@@ -44,7 +44,7 @@ function Contact() {
     <>
       <ToastContainer autoClose={2000} />
       <div id="contact" className="contact">
-        <div className="conatct-name">
+        <div className="contact-name">
           <h1>Get In Touch</h1>
         </div>
         <div className="contact-section">
