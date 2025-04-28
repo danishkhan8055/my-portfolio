@@ -1,8 +1,8 @@
 import Slider from "react-slick";
 import eAuction from "../../Assets/auction.PNG";
 import Ved from "../../Assets/Ved.PNG";
-import Portfolio from "../../Assets/protfolio.PNG"; // fixed spelling
-import Worzo from "../../Assets/worzo.PNG";
+import Portfolio from "../../Assets/protfolio.PNG"; 
+// import Worzo from "../../Assets/worzo.PNG";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
