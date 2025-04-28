@@ -1,47 +1,13 @@
 
         .heading{
-            
-            font-size: 30px;
-            font-variant: petite-caps;      
-        }
-        .heading strong{
-            background: linear-gradient(260deg , #c86e7e 1% , #afeb5b 102.06%);
-            background-clip: text;
-            -webkit-background-clip :text;
-            -webkit-text-fill-color: transparent;
-    font-size: 50px;
-        }
- .navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 60px;
- }
+            font-variant: petite-caps;
+        }      
+       
+ 
  .nav-menu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 60px;
-    font-size: 20px;
     font-variant: petite-caps;
  }
-.nav-connect{
-    
-    padding: 20px 40px;
-    border-radius: 60px;
-    background: linear-gradient(260deg , #DA7C25 0.36% , #B923E1 102.06%);
-   /* background: linear-gradient( 150deg, red 0%, orange 25%, yellow 50%, green 75%, blue 100%); */
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.5s;
-}
-.nav-connect:hover{
-    transform: scale(1.05);
-}
-.anchorlink{
-    text-decoration: none;
-    color: white;
-}
+ 
 .button{
     text-decoration: none;
     color: white;
