@@ -11,7 +11,7 @@ function About() {
   ];
 
   const achievements = [
-    { value: "1+", label: "Years of Practice Experience" },
+    { value: "3+", label: "Month of Proffesional Experience" },
     { value: "2+", label: "Projects Completed" },
   ];
 
