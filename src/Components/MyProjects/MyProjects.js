@@ -3,7 +3,7 @@ const MyProjects = () => {
 
    
   return (
-    <div>
+    <div id="projects">
 <Card/>
     </div>
   )

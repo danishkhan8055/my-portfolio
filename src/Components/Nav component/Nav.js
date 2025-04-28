@@ -3,7 +3,6 @@ import { MdCancel } from "react-icons/md";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { label } from "framer-motion/client";
 
 const Nav = () => {
   const [select, setSelect] = useState("home");
@@ -27,7 +26,7 @@ const Nav = () => {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
-    {if : "projects" , label : "Projects"},
+    {id : "projects" , label : "Projects"},
   ];
 
   return (
