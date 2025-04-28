@@ -46,12 +46,14 @@ const Nav = () => {
           className="flex items-center"
         >
           <span
-            className={`text-2xl sm:text-3xl font-semibold  ${
+            className={`text-2xl sm:text-3xl font-semibold cursor-pointer ${
               scrolled ? "text-gray-800" : "text-gray-600"
             }`}
           >
             Code{" "}
-            <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent">
+            <span
+            
+            className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent ">
               DanY
             </span>
           </span>
