@@ -39,7 +39,9 @@ const Footer = () => {
               <FaCode className="text-[#afeb5b]" />
             </h3>
             <p className="text-gray-700">
-            Aspiring React JS Developer from India with hands-on experience of over three months, currently sharpening skills while building modern, user-centric web applications
+              Aspiring React JS Developer from India with hands-on experience of
+              over three months, currently sharpening skills while building
+              modern, user-centric web applications
             </p>
           </div>
 

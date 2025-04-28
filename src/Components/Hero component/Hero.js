@@ -47,7 +47,10 @@ function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
-          Full Stack Developer from Indore, India with over three months of experience, currently working in the industry. Passionate about building modern, scalable web applications that deliver real-world impact
+            Full Stack Developer from Indore, India with over three months of
+            experience, currently working in the industry. Passionate about
+            building modern, scalable web applications that deliver real-world
+            impact
           </p>
 
           {/* Action buttons */}

@@ -26,7 +26,7 @@ const Nav = () => {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
-    {id : "projects" , label : "Projects"},
+    { id: "projects", label: "Projects" },
   ];
 
   return (
@@ -51,9 +51,7 @@ const Nav = () => {
             }`}
           >
             Code{" "}
-            <span
-            
-            className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent ">
+            <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent ">
               DanY
             </span>
           </span>
@@ -163,9 +161,7 @@ const Nav = () => {
                         href={`#${item.id}`}
                         offset={50}
                         className={`relative no-underline text-lg sm:text-xl font-medium ${
-                          select === item.id
-                            ? "text-gray-900"
-                            : "text-gray-700"
+                          select === item.id ? "text-gray-900" : "text-gray-700"
                         }`}
                         onClick={() => {
                           setSelect(item.id);
@@ -182,21 +178,21 @@ const Nav = () => {
                       </AnchorLink>
                     </motion.li>
                   ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="px-4 sm:px-6 py-2 text-base sm:text-lg mx-6 sm:mx-8 mt-6 sm:mt-8 cursor-pointer rounded-full bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] text-center"
-                >
-                  <AnchorLink
-                    href="#contact"
-                    offset={50}
-                    className="no-underline text-white font-medium"
-                    onClick={toggleMenu}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="px-4 sm:px-6 py-2 text-base sm:text-lg mx-6 sm:mx-8 mt-6 sm:mt-8 cursor-pointer rounded-full bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] text-center"
                   >
-                    Connect with me
-                  </AnchorLink>
-                </motion.div>
+                    <AnchorLink
+                      href="#contact"
+                      offset={50}
+                      className="no-underline text-white font-medium"
+                      onClick={toggleMenu}
+                    >
+                      Connect with me
+                    </AnchorLink>
+                  </motion.div>
                 </ul>
               </motion.div>
             </>
