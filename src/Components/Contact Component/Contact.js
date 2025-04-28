@@ -9,7 +9,7 @@ function Contact() {
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    
+
     formData.append("access_key", "1f3f4707-107e-4599-b2aa-5b879d981bd2");
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -49,20 +49,26 @@ function Contact() {
   const contactDetails = [
     { icon: <IoMdMail className="text-xl" />, text: "danish.k88274@gmail.com" },
     { icon: <IoMdCall className="text-xl" />, text: "8839806126, 9109729777" },
-    { icon: <FaLocationDot className="text-xl" />, text: "Indore, Madhya Pradesh" }
+    {
+      icon: <FaLocationDot className="text-xl" />,
+      text: "Indore, Madhya Pradesh",
+    },
   ];
 
   return (
-    <section id="contact" className="relative py-20 bg-gradient-to-br from-[#f9f9f9] to-[#f0f0f0]">
+    <section
+      id="contact"
+      className="relative py-20 bg-gradient-to-br from-[#f9f9f9] to-[#f0f0f0]"
+    >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.1 }}
           transition={{ duration: 1 }}
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] mix-blend-multiply filter blur-3xl"
         ></motion.div>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.1 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -96,9 +102,13 @@ function Contact() {
             viewport={{ once: true }}
             className="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg"
           >
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Let's Talk</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">
+              Let's Talk
+            </h2>
             <p className="text-gray-600 mb-8">
-              I'm ready to start my career and would love to hear from you. Whether you have a question or just want to say hi, I'll do my best to get back to you!
+              I'm ready to start my career and would love to hear from you.
+              Whether you have a question or just want to say hi, I'll do my
+              best to get back to you!
             </p>
 
             <div className="space-y-6">
@@ -131,7 +141,10 @@ function Contact() {
           >
             <div className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Your Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -145,7 +158,10 @@ function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Your Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -159,7 +175,10 @@ function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Your Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -186,7 +205,7 @@ function Contact() {
         </div>
       </div>
 
-      <ToastContainer 
+      <ToastContainer
         position="top-center"
         autoClose={3000}
         hideProgressBar={false}

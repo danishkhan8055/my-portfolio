@@ -7,18 +7,18 @@ const Footer = () => {
     {
       icon: <FaGithub className="text-xl" />,
       url: "https://github.com/DanuU8055",
-      label: "GitHub"
+      label: "GitHub",
     },
     {
       icon: <FaLinkedin className="text-xl" />,
       url: "https://www.linkedin.com/in/danish-khan-94758a296/",
-      label: "LinkedIn"
+      label: "LinkedIn",
     },
     {
       icon: <MdEmail className="text-xl" />,
       url: "mailto:danish.k88274@gmail.com",
-      label: "Email"
-    }
+      label: "Email",
+    },
   ];
 
   return (
@@ -35,16 +35,19 @@ const Footer = () => {
           <div className="max-w-md text-center md:text-left">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
               <FaCode className="text-[#c86e7e]" />
-             <p className="text-gray-600"> Danish Khan</p>
+              <p className="text-gray-600"> Danish Khan</p>
               <FaCode className="text-[#afeb5b]" />
             </h3>
             <p className="text-gray-700">
-              Full Stack Developer from India with Three months and continue    experience, passionate about building modern web applications.
+              Full Stack Developer from India with Three months and continue
+              experience, passionate about building modern web applications.
             </p>
           </div>
 
           <div className="flex flex-col items-center md:items-end">
-            <h4 className="text-xl font-semibold text-gray-600 mb-4">Connect With Me</h4>
+            <h4 className="text-xl font-semibold text-gray-600 mb-4">
+              Connect With Me
+            </h4>
             <div className="flex gap-4">
               {socialLinks.map((link, index) => (
                 <motion.a

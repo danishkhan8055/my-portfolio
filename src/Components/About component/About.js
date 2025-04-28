@@ -7,12 +7,12 @@ function About() {
     { name: "React JS", level: 85 },
     { name: "JavaScript", level: 80 },
     { name: "Node JS", level: 75 },
-    { name: "Express JS", level: 70 }
+    { name: "Express JS", level: 70 },
   ];
 
   const achievements = [
     { value: "1+", label: "Years of Practice Experience" },
-    { value: "2+", label: "Projects Completed" }
+    { value: "2+", label: "Projects Completed" },
   ];
 
   return (
@@ -65,16 +65,21 @@ function About() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <p className="text-lg text-gray-700">
-                  I am a Fresher Full Stack Developer with proficiency in React JS and six months of training experience.
+                  I am a Fresher Full Stack Developer with proficiency in React
+                  JS and six months of training experience.
                 </p>
                 <p className="text-lg text-gray-700">
-                  Leveraged the expertise of senior developers to enhance technical skills and understanding of complex concepts, promoting continuous learning and professional growth.
+                  Leveraged the expertise of senior developers to enhance
+                  technical skills and understanding of complex concepts,
+                  promoting continuous learning and professional growth.
                 </p>
               </div>
 
               {/* Skills */}
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-800">My Skills</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  My Skills
+                </h3>
                 <div className="space-y-3">
                   {skills.map((skill, index) => (
                     <motion.div
