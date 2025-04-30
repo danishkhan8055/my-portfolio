@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profilephoto from "../../Assets/profilephoto2.png";
+import profilephoto from "../../Assets/Untitled design.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import resume from "../../Assets/DanishRESUME.pdf";
 
@@ -28,7 +28,7 @@ function Hero() {
           <img
             src={profilephoto}
             alt="Danish Khan"
-            className="w-full h-full object-cover rounded-full border-4 border-white shadow-2xl"
+            className="w-full h-full object-contain rounded-full border-4 border-white shadow-2xl"
           />
         </motion.div>
 
