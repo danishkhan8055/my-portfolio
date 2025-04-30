@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profilephoto from "../../Assets/profilephoto2.jpg";
+import profilephoto from "../../Assets/profilephoto2.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import resume from "../../Assets/DanishRESUME.pdf";
 
