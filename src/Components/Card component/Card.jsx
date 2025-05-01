@@ -14,7 +14,7 @@ const Card = () => {
     {
       name: "E-Auction",
       image: eAuction,
-      url: "",
+      url: "https://e-auction-v1t6.onrender.com",
       role: "Full Stack",
       description:
         "E-Auction is an online bidding platform that allows users to place bids on listed items digitally. The goal is to provide a transparent, efficient, and remote-accessible auctioning system.",
