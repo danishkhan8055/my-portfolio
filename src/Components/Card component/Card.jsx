@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import eAuction from "../../Assets/auction.PNG";
 import Ved from "../../Assets/Ved.PNG";
 import Portfolio from "../../Assets/protfolio.PNG"; 
-// import Worzo from "../../Assets/worzo.PNG";
+import Worzo from "../../Assets/worzo.PNG";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
@@ -61,15 +61,15 @@ const Card = () => {
         "Nodemailer",
       ],
     },
-    // {
-    //   name: "Worzo",
-    //   image: Worzo,
-    //   url: "https://worzo.in/",
-    //   role:"Frontend",
-    //   description:"Worzo is a website for an electric vehicle (EV) scooty company. It showcases different EV models, their specifications, features, and allows users to explore and inquire about the products.",
-    //   technology:["React JS" , "Node JS" , "Express JS" , "MongoDB" ],
-    //   library:["Redux Toolkit" , "React-Slick" , "React-Toastify","Zod","Framer-Motion"]
-    // },
+    {
+      name: "Worzo",
+      image: Worzo,
+      url: "https://worzo.in/",
+      role:"Frontend",
+      description:"Worzo is a website for an electric vehicle (EV) scooty company. It showcases different EV models, their specifications, features, and allows users to explore and inquire about the products.",
+      technology:["React JS" , "Node JS" , "Express JS" , "MongoDB" ],
+      library:["Redux Toolkit" , "React-Slick" , "React-Toastify","Zod","Framer-Motion"]
+    },
   ];
 
   const handleProjectData = (details) => {
