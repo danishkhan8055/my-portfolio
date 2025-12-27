@@ -9,7 +9,7 @@
     "@mui/material": "^6.4.1",
     "@mui/styled-engine-sc": "^6.4.0",
     "cra-template": "1.2.0",
-    "framer-motion": "^12.9.2",
+    "framer-motion": "^12.23.26",
     "nodemailer": "^6.10.0",
     "react": "^19.0.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",

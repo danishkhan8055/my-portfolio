@@ -11,3 +11,8 @@
     margin: 0px;
     padding: 0px;
 }
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
