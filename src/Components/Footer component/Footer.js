@@ -5,92 +5,124 @@ import { MdEmail } from "react-icons/md";
 const Footer = () => {
   const socialLinks = [
     {
-      icon: <FaGithub className="text-xl" />,
+      icon: <FaGithub />,
       url: "https://github.com/danishkhan8055",
       label: "GitHub",
     },
     {
-      icon: <FaLinkedin className="text-xl" />,
+      icon: <FaLinkedin />,
       url: "https://www.linkedin.com/in/danish-khan-94758a296/",
       label: "LinkedIn",
     },
     {
-      icon: <MdEmail className="text-xl" />,
+      icon: <MdEmail />,
       url: "mailto:danish.k88274@gmail.com",
       label: "Email",
     },
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-[#f9f9f9] to-[#f0f0f0] text-white pt-12 pb-6">
-      <div className="container mx-auto px-6">
-        {/* Top Section */}
+    <footer className="relative overflow-hidden bg-[#0a0a0f] text-white pt-24 pb-10">
+      {/* ================= BACKGROUND EFFECTS ================= */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0b0b14] to-black" />
+
+      {/* Glow blobs */}
+      <motion.div
+        className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-purple-600/20 blur-[200px]"
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-[-40%] right-[-20%] w-[500px] h-[500px] bg-violet-500/20 blur-[240px]"
+        animate={{ opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 10, repeat: Infinity }}
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* ================= TOP ================= */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8"
+          transition={{ duration: 0.6 }}
+          className="flex flex-col lg:flex-row justify-between items-center gap-14"
         >
-          <div className="max-w-md text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
-              <FaCode className="text-[#c86e7e]" />
-              <p className="text-gray-600"> Danish Khan</p>
-              <FaCode className="text-[#afeb5b]" />
+          {/* Brand */}
+          <div className="max-w-lg text-center lg:text-left space-y-4">
+            <h3 className="text-2xl font-bold flex items-center justify-center lg:justify-start gap-2">
+              <FaCode className="text-purple-400" />
+              <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+                Danish Khan
+              </span>
+              <FaCode className="text-violet-400" />
             </h3>
-            <p className="text-gray-700">
-              Aspiring React JS Developer from India with hands-on experience of
-              over three months, currently sharpening skills while building
-              modern, user-centric web applications
+
+            <p className="text-gray-400 leading-relaxed">
+              MERN Stack Developer passionate about building scalable,
+              high-performance web applications with modern UI & real-world
+              impact.
             </p>
           </div>
 
-          <div className="flex flex-col items-center md:items-end">
-            <h4 className="text-xl font-semibold text-gray-600 mb-4">
+          {/* Social */}
+          <div className="flex flex-col items-center lg:items-end gap-4">
+            <h4 className="text-lg font-semibold text-gray-300">
               Connect With Me
             </h4>
+
             <div className="flex gap-4">
-              {socialLinks.map((link, index) => (
+              {socialLinks.map((link, i) => (
                 <motion.a
-                  key={index}
+                  key={i}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -3, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-gray-800 p-3 rounded-full hover:bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] transition-all duration-300"
                   aria-label={link.label}
+                  whileHover={{ y: -6, scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="
+                    relative p-4 rounded-full
+                    bg-white/5 border border-purple-500/20
+                    text-purple-300
+                    hover:text-white
+                    transition
+                  "
                 >
-                  {link.icon}
+                  {/* glow */}
+                  <span className="absolute inset-0 rounded-full bg-purple-500/30 blur-lg opacity-0 hover:opacity-100 transition" />
+                  <span className="relative z-10 text-xl">
+                    {link.icon}
+                  </span>
                 </motion.a>
               ))}
             </div>
           </div>
         </motion.div>
 
-        {/* Divider */}
+        {/* ================= DIVIDER ================= */}
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-8"
+          transition={{ duration: 1 }}
+          className="origin-left h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent my-14"
         />
 
-        {/* Bottom Section */}
+        {/* ================= BOTTOM ================= */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm"
+          transition={{ delay: 0.2 }}
+          className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500"
         >
-          <div className="flex items-center text-gray-600 gap-1">
+          <span>
             © {new Date().getFullYear()} Danish Khan. All rights reserved.
-          </div>
-          <div className="flex items-center text-gray-600 gap-1">
-            Made with <FaHeart className="text-[#c86e7e] mx-1" /> in India
-          </div>
+          </span>
+
+          <span className="flex items-center gap-1">
+            Crafted with <FaHeart className="text-purple-400" /> in India
+          </span>
         </motion.div>
       </div>
     </footer>

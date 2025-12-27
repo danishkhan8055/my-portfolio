@@ -1,7 +1,5 @@
 
 import { motion } from "framer-motion";
-import profilephoto from "../../Assets/hero-image.jpeg";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import resume from "../../Assets/DanishRESUME.pdf";
 
 /* ================= TEXT ANIMATION ================= */

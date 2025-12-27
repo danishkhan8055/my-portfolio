@@ -11,8 +11,37 @@
     margin: 0px;
     padding: 0px;
 }
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);
   }
+}
+.hover-glow {
+  position: relative;
+  z-index: 1;
+}
+
+.hover-glow::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.35),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.hover-glow:hover::after {
+  opacity: 1;
 }

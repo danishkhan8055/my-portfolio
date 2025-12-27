@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { FaLocationDot, FaPaperPlane } from "react-icons/fa6";
-
 import { IoMdCall, IoMdMail } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+/* ================= BG ELEMENTS ================= */
+const particles = Array.from({ length: 30 });
+const streaks = Array.from({ length: 6 });
 
 function Contact() {
   const onSubmit = async (event) => {
@@ -28,195 +31,193 @@ function Contact() {
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: json,
       }).then((res) => res.json());
 
       if (res.success) {
-        toast.success("Message sent successfully! 🎉");
+        toast.success("Message sent successfully 🚀");
         event.target.reset();
       } else {
-        toast.error(res.message || "Something went wrong! Try again.");
+        toast.error("Something went wrong!");
       }
-    } catch (error) {
-      toast.error("Network error! Please try again.");
+    } catch {
+      toast.error("Network error!");
     }
   };
 
   const contactDetails = [
-    { icon: <IoMdMail className="text-xl" />, text: "danish.k88274@gmail.com" },
-    { icon: <IoMdCall className="text-xl" />, text: "8839806126, 9109729777" },
-    {
-      icon: <FaLocationDot className="text-xl" />,
-      text: "Indore, Madhya Pradesh",
-    },
+    { icon: <IoMdMail />, text: "danish.k88274@gmail.com" },
+    { icon: <IoMdCall />, text: "8839806126 | 9109729777" },
+    { icon: <FaLocationDot />, text: "Indore, Madhya Pradesh" },
   ];
 
   return (
     <section
       id="contact"
-      className="relative py-20 bg-gradient-to-br from-[#f9f9f9] to-[#f0f0f0]"
+      className="relative py-32 bg-[#0a0a0f] text-white overflow-hidden"
     >
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.1 }}
-          transition={{ duration: 1 }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] mix-blend-multiply filter blur-3xl"
-        ></motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#afeb5b] to-[#c86e7e] mix-blend-multiply filter blur-3xl"
-        ></motion.div>
+      {/* ================= BASE BG ================= */}
+      <div className="absolute inset-0 bg-black" />
+
+      {/* ================= FLOATING PARTICLES ================= */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute w-2 h-2 rounded-full bg-purple-400"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: ["0%", "-120%"],
+              opacity: [0.3, 1, 0],
+            }}
+            transition={{
+              duration: 10 + Math.random() * 6,
+              repeat: Infinity,
+              delay: Math.random() * 6,
+              ease: "linear",
+            }}
+          />
+        ))}
       </div>
 
-      <div className="container mx-auto px-6">
-        {/* Section Title */}
+      {/* ================= DIAGONAL ENERGY STREAKS ================= */}
+      <div className="absolute inset-0 pointer-events-none">
+        {streaks.map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[2px] h-[160px]
+            bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: "-40%",
+              rotate: "25deg",
+            }}
+            animate={{ y: ["-40%", "140%"] }}
+            transition={{
+              duration: 6 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 4,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent">
-              Get In Touch
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Get In{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-violet-400 bg-clip-text text-transparent">
+              Touch
             </span>
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] mx-auto"></div>
+          </h2>
+          <p className="text-gray-400 mt-4">
+            Let’s build something meaningful together
+          </p>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Contact Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* ================= INFO ================= */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg"
+            className="space-y-10"
           >
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">
-              Let's Talk
-            </h2>
-            <p className="text-gray-600 mb-8">
-              I'm ready to start my career and would love to hear from you.
-              Whether you have a question or just want to say hi, I'll do my
-              best to get back to you!
+            <h3 className="text-2xl font-semibold">
+              Reach out anytime 👋
+            </h3>
+
+            <p className="text-gray-300 leading-relaxed">
+              I’m open to job opportunities, collaborations, and freelance work.
+              Drop a message and I’ll respond as soon as possible.
             </p>
 
             <div className="space-y-6">
-              {contactDetails.map((detail, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-4"
+              {contactDetails.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 text-gray-300"
                 >
-                  <div className="p-2 bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] rounded-full text-white">
-                    {detail.icon}
+                  <div className="p-3 rounded-full bg-purple-500/20 text-purple-400">
+                    {item.icon}
                   </div>
-                  <p className="text-gray-700">{detail.text}</p>
-                </motion.div>
+                  <span>{item.text}</span>
+                </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* ================= FORM ================= */}
           <motion.form
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             onSubmit={onSubmit}
-            className="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg"
+            className="
+              bg-[#0f0f1a]/80 backdrop-blur-xl
+              border border-purple-500/20
+              rounded-3xl p-8
+              shadow-[0_25px_80px_rgba(124,58,237,0.35)]
+            "
           >
             <div className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-gray-700 font-medium mb-2"
-                >
-                  Your Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c86e7e] focus:border-transparent transition-all"
-                  required
-                />
-              </div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                className="w-full px-4 py-3 rounded-lg bg-black/40
+                border border-purple-500/20 text-white
+                focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-gray-700 font-medium mb-2"
-                >
-                  Your Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c86e7e] focus:border-transparent transition-all"
-                  required
-                />
-              </div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                className="w-full px-4 py-3 rounded-lg bg-black/40
+                border border-purple-500/20 text-white
+                focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-gray-700 font-medium mb-2"
-                >
-                  Your Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  placeholder="Enter your message"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c86e7e] focus:border-transparent transition-all"
-                  required
-                ></textarea>
-              </div>
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Your Message"
+                className="w-full px-4 py-3 rounded-lg bg-black/40
+                border border-purple-500/20 text-white
+                focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
 
               <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="
+                  w-full flex items-center justify-center gap-2
+                  py-3 rounded-full
+                  bg-gradient-to-r from-purple-600 to-violet-500
+                  shadow-[0_12px_35px_rgba(124,58,237,0.6)]
+                "
               >
-                <FaPaperPlane />
-                Send Message
+                <FaPaperPlane /> Send Message
               </motion.button>
             </div>
           </motion.form>
         </div>
       </div>
 
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+      <ToastContainer position="top-center" autoClose={3000} theme="dark" />
     </section>
   );
 }

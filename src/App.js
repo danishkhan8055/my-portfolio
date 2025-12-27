@@ -6,17 +6,21 @@ import MyProjects from "./Components/MyProjects/MyProjects";
 import Contact from "./Components/Contact Component/Contact";
 import Footer from "./Components/Footer component/Footer";
 import "react-toastify/dist/ReactToastify.css";
+import CursorGlow from "./Components/CursorGlow/CursorGlow";
+import Timeline from "./Components/Timeline/Timeline";
 
 function App() {
   return (
-    <>
+    <div className="overflow-x-hidden">
+      <CursorGlow />
       <Nav />
       <Hero />
       <About />
+      <Timeline/>
       <MyProjects />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }
 

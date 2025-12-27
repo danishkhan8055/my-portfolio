@@ -1,217 +1,233 @@
-import Slider from "react-slick";
-import eAuction from "../../Assets/auction.PNG";
-import Ved from "../../Assets/Ved.PNG";
-import Portfolio from "../../Assets/protfolio.PNG"; 
-import Worzo from "../../Assets/worzo.PNG";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const Card = () => {
-  const [showModel, setShowModel] = useState(false);
-  const [projectDetail, setProjectDetail] = useState();
-  const projectData = [
-    {
-      name: "E-Auction",
-      image: eAuction,
-      url: "https://e-auction-v1t6.onrender.com",
-      role: "Full Stack",
-      description:
-        "E-Auction is an online bidding platform that allows users to place bids on listed items digitally. The goal is to provide a transparent, efficient, and remote-accessible auctioning system.",
-      technology: ["React JS", "Node JS", "Express JS", "MongoDB"],
-      library: [
-        "React Slick",
-        "Framer Motion",
-        "Zod",
-        "Tailwind CSS",
-        "Multer",
-        "React-Toastify",
-      ],
-    },
-    {
-      name: "Ved Tour & Travels",
-      image: Ved,
-      url: "https://vedtourandtravels.in/",
-      role: "Frontend",
-      description:
-        "Ved Tour & Travels is a travel booking platform where users can browse tour packages, view trip details, and make bookings. It includes an admin panel to manage trips and user bookings.",
-      technology: ["React JS", "Node JS", "Express JS", "MongoDB"],
-      library: [
-        "Redux Toolkit",
-        "Zod",
-        "Tanstack",
-        "Framer Motion",
-        "React Slick",
-        "React-Toastify",
-      ],
-    },
-    {
-      name: "Portfolio",
-      image: Portfolio,
-      url: "https://soft-entremet-566960.netlify.app/",
-      role: "Frontend",
-      description:
-        "This is my personal portfolio website where i showcase my projects, skills, experience, and include a contact form & you can download my resume . The design is clean, modern, and responsive.",
-      technology: ["React JS"],
-      library: [
-        "Zod",
-        "Framer Motion",
-        "React-Toastify",
-        "React-Slick",
-        "Nodemailer",
-      ],
-    },
-    {
-      name: "Worzo",
-      image: Worzo,
-      url: "https://worzo.in/",
-      role:"Frontend",
-      description:"Worzo is a website for an electric vehicle (EV) scooty company. It showcases different EV models, their specifications, features, and allows users to explore and inquire about the products.",
-      technology:["React JS" , "Node JS" , "Express JS" , "MongoDB" ],
-      library:["Redux Toolkit" , "React-Slick" , "React-Toastify","Zod","Framer-Motion"]
-    },
-  ];
+import eAuction from "../../Assets/auction.PNG";
+import Ved from "../../Assets/Ved.PNG";
+import Portfolio from "../../Assets/protfolio.PNG";
+import Worzo from "../../Assets/worzo.PNG";
 
-  const handleProjectData = (details) => {
-    setProjectDetail(details);
-    console.log(projectDetail);
-    setShowModel(true);
-  };
-  const handleClose = () => {
-    setShowModel(false);
-  };
+/* ================= STAR DATA ================= */
+const stars = Array.from({ length: 40 });
+const streaks = Array.from({ length: 6 });
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    pauseOnHover: true,
-    arrows: false,
-  };
+const projects = [
+  {
+    name: "E-Auction Platform",
+    image: eAuction,
+    role: "Full Stack Developer",
+    description:
+      "A real-time online auction system with secure authentication, bidding logic, and admin control panel.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
+    url: "https://e-auction-v1t6.onrender.com",
+  },
+  {
+    name: "Ved Tour & Travels",
+    image: Ved,
+    role: "Frontend Developer",
+    description:
+      "A travel booking platform with dynamic tour listings, filters, and admin-managed content.",
+    tech: ["React", "Redux Toolkit", "Zod"],
+    url: "https://vedtourandtravels.in/",
+  },
+  {
+    name: "Personal Portfolio",
+    image: Portfolio,
+    role: "Frontend Developer",
+    description:
+      "My personal portfolio showcasing projects, skills, experience, animations, and resume.",
+    tech: ["React", "Framer Motion", "Tailwind CSS"],
+    url: "https://soft-entremet-566960.netlify.app/",
+  },
+  {
+    name: "Worzo EV Website",
+    image: Worzo,
+    role: "Frontend Developer",
+    description:
+      "EV scooter company website featuring product showcases, specifications, and inquiry flows.",
+    tech: ["React", "Redux Toolkit"],
+    url: "https://worzo.in/",
+  },
+];
+
+function Projects() {
+  const INITIAL_COUNT = 3;
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, INITIAL_COUNT);
 
   return (
-    <div className="w-full max-w-xl mx-auto py-10 px-4">
-      <Slider {...settings}>
-        {projectData.map((project, index) => (
-          <div key={index} className="p-4">
-            <div className="rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 bg-white">
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                <button
-                  // onClick={()=>window.open(project.url,"blank")}
-                  onClick={() => handleProjectData(project)}
-                  className="bg-gradient-to-r from-pink-400 to-green-400 text-white py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all"
-                >
-                  Read More
-                </button>
-              </div>
-            </div>
-          </div>
+    <section className="relative py-32 bg-[#0a0a0f] text-white overflow-hidden">
+      {/* ================= BASE BG ================= */}
+      <div className="absolute inset-0 bg-black" />
+
+      {/* ================= FLOATING STARS ================= */}
+      <div className="absolute inset-0 pointer-events-none">
+        {stars.map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute w-1.5 h-1.5 rounded-full bg-purple-400"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: ["0%", "-120%"],
+              opacity: [0.2, 1, 0],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 6,
+              repeat: Infinity,
+              delay: Math.random() * 6,
+              ease: "linear",
+            }}
+          />
         ))}
-      </Slider>
-      {showModel && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex items-center justify-center px-4">
-          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative transition-all duration-300 ease-in-out">
-            {/* Close Button */}
-            <button
-              className="absolute top-3 right-4 text-red-600 text-3xl font-bold"
-              onClick={handleClose}
-              title="Close"
-            >
-              &times;
-            </button>
+      </div>
 
-            {/* Project Title */}
-            <h3 className="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent border-b pb-3">
-              {projectDetail.name}
-            </h3>
+      {/* ================= LIGHT STREAKS ================= */}
+      <div className="absolute inset-0 pointer-events-none">
+        {streaks.map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[2px] h-[120px]
+            bg-gradient-to-b from-transparent via-purple-400 to-transparent
+            opacity-40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: "-30%",
+              rotate: "25deg",
+            }}
+            animate={{
+              y: ["-30%", "130%"],
+            }}
+            transition={{
+              duration: 6 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
 
-            {/* Content Layout */}
-            <div className="flex flex-col md:flex-row gap-6">
-              {/* Left Section: Image + Description */}
-              <div className="w-full md:w-1/2 flex flex-col gap-4">
-                <img
-                  src={projectDetail.image}
-                  alt={projectDetail.name}
-                  className="rounded-xl w-full h-auto object-cover shadow-md hover:shadow-xl transition-shadow duration-300"
-                />
-                <p className="text-gray-700">
-                  <span className="font-semibold">Description:</span>{" "}
-                  {projectDetail.description}
-                </p>
-              </div>
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Selected{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-violet-400 bg-clip-text text-transparent">
+              Projects
+            </span>
+          </h2>
+          <p className="text-gray-400 mt-4">
+            Real-world applications I’ve designed and developed
+          </p>
+        </motion.div>
 
-              {/* Right Section: Details */}
-              <div className="w-full md:w-1/2 flex flex-col gap-4">
-                {/* Role */}
-                <p className="text-gray-800 text-base">
-                  <span className="font-semibold">Role:</span>{" "}
-                  {projectDetail.role}
-                </p>
+        {/* Project List */}
+        <div className="space-y-32">
+          <AnimatePresence>
+            {visibleProjects.map((project, index) => {
+              const reverse = index % 2 !== 0;
 
-                {/* Technologies */}
-                <div>
-                  <h4 className="font-semibold mb-1 text-gray-800">
-                    Technologies:
-                  </h4>
-                  <ul className="flex flex-wrap gap-2">
-                    {projectDetail.technology.map((tech, i) => (
-                      <li
-                        key={i}
-                        className="bg-gray-200 px-3 py-1 rounded-full text-sm hover:bg-gray-300 transition"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              return (
+                <motion.div
+                  key={project.name}
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 60 }}
+                  transition={{ duration: 0.6 }}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"
+                >
+                  {/* Image */}
+                  <motion.div
+                    initial={{ opacity: 0, x: reverse ? 40 : -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className={reverse ? "lg:order-2" : ""}
+                  >
+                    <div className="rounded-2xl overflow-hidden border border-purple-500/20 shadow-[0_25px_70px_rgba(124,58,237,0.35)]">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                  </motion.div>
 
-                {/* Libraries */}
-                <div>
-                  <h4 className="font-semibold mb-1 text-gray-800">
-                    Libraries Used:
-                  </h4>
-                  <ul className="flex flex-wrap gap-2">
-                    {projectDetail.library.map((lib, i) => (
-                      <li
-                        key={i}
-                        className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm hover:bg-blue-200 transition"
-                      >
-                        {lib}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  {/* Content */}
+                  <motion.div
+                    initial={{ opacity: 0, x: reverse ? -40 : 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="space-y-6"
+                  >
+                    <h3 className="text-3xl font-bold">{project.name}</h3>
 
-                {/* Visit Button */}
-                {projectDetail.url && (
-                  <div className="mt-4">
+                    <p className="text-purple-400 font-medium">
+                      {project.role}
+                    </p>
+
+                    <p className="text-gray-300 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-3">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="px-4 py-1 rounded-full text-sm bg-white/5 border border-purple-500/20 text-purple-300"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
                     <a
-                      href={projectDetail.url}
+                      href={project.url}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-gradient-to-r from-pink-500 to-green-500 text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all"
+                      rel="noreferrer"
+                      className="inline-block mt-4 px-6 py-3 rounded-full
+                      bg-gradient-to-r from-purple-600 to-violet-500
+                      font-medium shadow-[0_12px_35px_rgba(124,58,237,0.6)]
+                      hover:scale-105 transition"
                     >
-                      Visit Site
+                      Live Preview →
                     </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
-      )}
-    </div>
-  );
-};
 
-export default Card;
+        {/* View More */}
+        {projects.length > INITIAL_COUNT && (
+          <div className="mt-28 flex justify-center">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowAll((p) => !p)}
+              className="px-10 py-4 rounded-full bg-white/5 border border-purple-500/30
+              text-purple-300 font-semibold backdrop-blur hover:bg-purple-500/10 transition"
+            >
+              {showAll ? "View Less Projects ↑" : "View More Projects ↓"}
+            </motion.button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export default Projects;

@@ -1,133 +1,188 @@
 import { motion } from "framer-motion";
 import profilephoto from "../../Assets/profilephoto.jpg";
 
+/* ===== Floating particles ===== */
+const particles = Array.from({ length: 16 });
+
 function About() {
   const skills = [
-    { name: "HTML & CSS", level: 90 },
-    { name: "React JS", level: 85 },
-    { name: "JavaScript", level: 80 },
-    { name: "Node JS", level: 75 },
-    { name: "Express JS", level: 70 },
+    "HTML",
+    "Tailwind CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Git",
+    "Redis",
   ];
 
   const achievements = [
-    { value: "3+", label: "Month of Proffesional Experience" },
-    { value: "2+", label: "Projects Completed" },
+    { value: "1+", label: "Year Industry Experience" },
+    { value: "8+", label: "Real-world Projects" },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        {/* Title */}
+    <section
+      id="about"
+      className="relative py-28 bg-[#0a0a0f] text-white overflow-x-clip"
+    >
+      {/* ===== BASE BACKGROUND ===== */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0b0b14] to-black z-0" />
+
+      {/* ===== FLOATING BACKGROUND PARTICLES (LIKE HERO) ===== */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        {particles.map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute rounded-full bg-purple-400/30"
+            style={{
+              width: 6 + Math.random() * 8,
+              height: 6 + Math.random() * 8,
+            }}
+            initial={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: 0.3,
+            }}
+            animate={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: [0.15, 0.4, 0.15],
+            }}
+            transition={{
+              duration: 18 + Math.random() * 12,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* ===== AMBIENT BLOBS ===== */}
+      <motion.div
+        className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-purple-600/20 blur-[200px] z-[1]"
+        animate={{ y: [0, 80, 0] }}
+        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <motion.div
+        className="absolute bottom-[-30%] right-[-20%] w-[520px] h-[520px] bg-violet-500/20 blur-[240px] z-[1]"
+        animate={{ y: [0, -120, 0] }}
+        transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 container mx-auto px-6">
+        {/* ===== HEADING ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent">
-              About Me
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            About{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-violet-400 bg-clip-text text-transparent">
+              Me
             </span>
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] mx-auto"></div>
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Passionate full-stack developer focused on building modern,
+            scalable, and impactful web applications.
+          </p>
         </motion.div>
 
-        {/* Main Content */}
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          {/* Profile Image */}
+        {/* ===== MAIN GRID ===== */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* IMAGE */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex-1 flex justify-center"
+            className="flex justify-center"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <img
-                src={profilephoto}
-                alt="Danish Khan"
-                className="w-full h-full object-contain rounded-lg shadow-2xl border-4 border-white"
-              />
-              <div className="absolute -inset-4 border-2 border-[#afeb5b] rounded-lg -z-10"></div>
+            <div className="relative group">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600 to-violet-500 blur-xl opacity-30 group-hover:opacity-50 transition" />
+
+              <div className="relative w-72 h-80 sm:w-80 sm:h-[420px] rounded-3xl bg-[#0f0f1a] border border-purple-500/20 flex items-center justify-center overflow-hidden">
+                <img
+                  src={profilephoto}
+                  alt="Danish Khan"
+                  className="max-h-full max-w-full object-contain rounded-2xl"
+                />
+              </div>
             </div>
           </motion.div>
 
-          {/* Text Content */}
+          {/* TEXT */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex-1"
+            className="space-y-8"
           >
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <p className="text-lg text-gray-700">
-                  I am a Fresher Full Stack Developer with proficiency in React
-                  JS and six months of training experience.
-                </p>
-                <p className="text-lg text-gray-700">
-                  Leveraged the expertise of senior developers to enhance
-                  technical skills and understanding of complex concepts,
-                  promoting continuous learning and professional growth.
-                </p>
-              </div>
+            <h3 className="text-2xl font-semibold">
+              MERN Stack Developer based in India 🇮🇳
+            </h3>
 
-              {/* Skills */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-800">
-                  My Skills
-                </h3>
-                <div className="space-y-3">
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-700">{skill.name}</span>
-                        <span className="text-gray-500">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2.5">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                          className="h-2.5 rounded-full bg-gradient-to-r from-[#c86e7e] to-[#afeb5b]"
-                        ></motion.div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+            <p className="text-gray-300 leading-relaxed">
+              I’m a passionate full-stack developer with hands-on experience in
+              React, Node.js, and modern web technologies.
+            </p>
+
+            <p className="text-gray-300 leading-relaxed">
+              I enjoy working on real-world products and improving performance,
+              UX, and scalability.
+            </p>
+
+            {/* SKILLS */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Tech Stack</h4>
+              <div className="flex flex-wrap gap-3">
+                {skills.map((skill, i) => (
+                  <motion.span
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.05 }}
+                    viewport={{ once: true }}
+                    className="px-4 py-2 rounded-full text-sm font-medium bg-white/5 border border-purple-500/20 text-purple-300 backdrop-blur hover:bg-purple-500/10 transition"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Achievements */}
+        {/* ===== STATS ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
+          className="mt-28 grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-4xl mx-auto"
         >
-          {achievements.map((achievement, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
+          {achievements.map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -8 }}
+              className="relative overflow-hidden rounded-3xl p-8 text-center bg-[#0f0f1a]/80 backdrop-blur-xl border border-purple-500/20 shadow-[0_20px_60px_rgba(124,58,237,0.15)]"
             >
-              <h3 className="text-4xl font-bold bg-gradient-to-r from-[#c86e7e] to-[#afeb5b] bg-clip-text text-transparent">
-                {achievement.value}
+              <h3 className="text-5xl font-extrabold bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+                {item.value}
               </h3>
-              <p className="text-gray-600 mt-2">{achievement.label}</p>
-            </div>
+              <p className="mt-3 text-sm uppercase tracking-widest text-gray-400">
+                {item.label}
+              </p>
+            </motion.div>
           ))}
         </motion.div>
       </div>
