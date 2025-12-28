@@ -9,7 +9,7 @@ const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   // const menuRef = (useRef < HTMLDivElement) | (null > null);
-  const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuRef = useRef(null);
 
 
   useEffect(() => {
