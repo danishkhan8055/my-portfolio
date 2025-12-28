@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import resume from "../../Assets/DanishRESUME.pdf";
+import resume from "../../Assets/Danish-CV.pdf";
 
 /* ================= TEXT ANIMATION ================= */
 const container = {

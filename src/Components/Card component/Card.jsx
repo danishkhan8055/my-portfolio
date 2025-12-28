@@ -90,7 +90,7 @@ const projects = [
     description:
       "My personal portfolio showcasing projects, skills, experience, animations, and resume.",
     tech: ["React", "Framer Motion", "Tailwind CSS"],
-    url: "https://soft-entremet-566960.netlify.app/",
+    url: "https://danish-khan-portfolio.netlify.app/",
   },
   {
     name: "Swami Vivekanand Vidhya Peeth",

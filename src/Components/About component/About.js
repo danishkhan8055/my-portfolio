@@ -6,15 +6,15 @@ const particles = Array.from({ length: 16 });
 
 function About() {
   const skills = [
-    "HTML",
-    "Tailwind CSS",
-    "JavaScript",
-    "TypeScript",
     "React",
     "Node.js",
     "Express",
+    "JavaScript",
     "MongoDB",
+    "TypeScript",
     "Git",
+    "Tailwind CSS",
+    "HTML",
     "Redis",
   ];
 
