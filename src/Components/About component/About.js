@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profilephoto from "../../Assets/profilephoto.jpg";
+import profilephoto from "../../Assets/passport_size1.png";
 
 /* ===== Floating particles ===== */
 const particles = Array.from({ length: 16 });
@@ -100,24 +100,48 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* IMAGE */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
-          >
-            <div className="relative group">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600 to-violet-500 blur-xl opacity-30 group-hover:opacity-50 transition" />
+  initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="flex justify-center"
+>
+  <div className="relative group">
+    {/* Glow */}
+    <div
+      className="
+        absolute inset-0
+        rounded-full
+        bg-gradient-to-r from-purple-600 to-violet-500
+        blur-2xl opacity-30
+        group-hover:opacity-50
+        transition
+      "
+    />
 
-              <div className="relative w-72 h-80 sm:w-80 sm:h-[420px] rounded-3xl bg-[#0f0f1a] border border-purple-500/20 flex items-center justify-center overflow-hidden">
-                <img
-                  src={profilephoto}
-                  alt="Danish Khan"
-                  className="max-h-full max-w-full object-contain rounded-2xl"
-                />
-              </div>
-            </div>
-          </motion.div>
+    {/* Circular Image Container */}
+    <div
+      className="
+        relative
+        w-56 h-56
+        sm:w-80 sm:h-80
+        rounded-full
+        bg-[#0f0f1a]
+        border border-purple-500/30
+        flex items-center justify-center
+        overflow-hidden
+        shadow-[0_0_40px_rgba(124,58,237,0.35)]
+      "
+    >
+      <img
+        src={profilephoto}
+        alt="Danish Khan"
+        className="w-full h-full object-cover rounded-full object-top"
+      />
+    </div>
+  </div>
+</motion.div>
+
 
           {/* TEXT */}
           <motion.div
