@@ -3,8 +3,12 @@ import { useState } from "react";
 
 import eAuction from "../../Assets/auction.PNG";
 import Ved from "../../Assets/Ved.PNG";
-import Portfolio from "../../Assets/protfolio.PNG";
+import Portfolio from "../../Assets/portfolio.png";
 import Worzo from "../../Assets/worzo.PNG";
+import AMS from "../../Assets/ams1.png";
+import HMS from "../../Assets/hms2.png";
+import SVVP from "../../Assets/svvp1.png";
+import Shopping_Center from "../../Assets/Shopping_center.png";
 
 /* ================= STAR DATA ================= */
 const stars = Array.from({ length: 40 });
@@ -12,13 +16,36 @@ const streaks = Array.from({ length: 6 });
 
 const projects = [
   {
-    name: "E-Auction Platform",
-    image: eAuction,
+    name: "AMS-Attendance Management System",
+    image: AMS,
+    role: "Frontend Developer",
+    description:
+      "AMS enables organizations to efficiently track employee or student attendance with real-time syncing, reporting, and automated record management.",
+    tech: [
+      "React",
+      "Redux-Toolkit",
+      "Swiper",
+      "TanStack Query",
+      "React-hook-form",
+      "Tailwind CSS",
+    ],
+    url: "https://ams.vyanwebs.com/login",
+  },
+  {
+    name: "Shopping Center",
+    image: Shopping_Center,
     role: "Full Stack Developer",
     description:
-      "A real-time online auction system with secure authentication, bidding logic, and admin control panel.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    url: "https://e-auction-v1t6.onrender.com",
+      "A modern online e-commerce platform showcasing premium leather products, stylish artificial jewellery, and exclusive perfumes.",
+    tech: [
+      "React",
+      "Redux-Toolkit",
+      "Framer-Motion",
+      "RTK-Query",
+      "React-hook-form",
+      "Tailwind CSS",
+    ],
+    url: "https://shoppingcenter.co.in/",
   },
   {
     name: "Ved Tour & Travels",
@@ -26,8 +53,35 @@ const projects = [
     role: "Frontend Developer",
     description:
       "A travel booking platform with dynamic tour listings, filters, and admin-managed content.",
-    tech: ["React", "Redux Toolkit", "Zod"],
+    tech: ["React", "Redux Toolkit", "Zod", "RTK-Query", "Nodemailer"],
     url: "https://vedtourandtravels.in/",
+  },
+  {
+    name: "HMS-Hotel Management System",
+    image: HMS,
+    role: "Frontend Developer",
+    description:
+      "HMS automates booking, room allocation, invoicing, customer details, and overall hotel operations with an intuitive dashboard..",
+    tech: [
+      "React",
+      "Redux-Toolkit",
+      "React-PDF",
+      "Swiper",
+      "RTK Query",
+      "React-hook-form",
+      "Tailwind CSS",
+    ],
+    url: "https://hms-hotel-eternity.onrender.com/",
+  },
+
+  {
+    name: "Worzo EV Website",
+    image: Worzo,
+    role: "Frontend Developer",
+    description:
+      "EV scooter company website featuring product showcases, specifications, and inquiry flows.",
+    tech: ["React", "Redux Toolkit"],
+    url: "https://worzo.in/",
   },
   {
     name: "Personal Portfolio",
@@ -39,13 +93,30 @@ const projects = [
     url: "https://soft-entremet-566960.netlify.app/",
   },
   {
-    name: "Worzo EV Website",
-    image: Worzo,
-    role: "Frontend Developer",
+    name: "Swami Vivekanand Vidhya Peeth",
+    image: SVVP,
+    role: "Full Stack Developer",
     description:
-      "EV scooter company website featuring product showcases, specifications, and inquiry flows.",
-    tech: ["React", "Redux Toolkit"],
-    url: "https://worzo.in/",
+      "A modern educational website representing school activities & academics.Includes gallery, achievements, notices, academics, and admission enquiry.",
+    tech: [
+      "React",
+      "Redux-Toolkit",
+      "RTK Query",
+      "React-hook-form",
+      "Tailwind CSS",
+      "Express JS",
+      "Node JS",
+    ],
+    url: "https://svvpalirajpur.com/",
+  },
+  {
+    name: "E-Auction Platform",
+    image: eAuction,
+    role: "Full Stack Developer",
+    description:
+      "A real-time online auction system with secure authentication, bidding logic, and admin control panel.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
+    url: "https://e-auction-v1t6.onrender.com",
   },
 ];
 
@@ -53,9 +124,7 @@ function Projects() {
   const INITIAL_COUNT = 3;
   const [showAll, setShowAll] = useState(false);
 
-  const visibleProjects = showAll
-    ? projects
-    : projects.slice(0, INITIAL_COUNT);
+  const visibleProjects = showAll ? projects : projects.slice(0, INITIAL_COUNT);
 
   return (
     <section className="relative py-32 bg-[#0a0a0f] text-white overflow-hidden">

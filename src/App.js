@@ -8,11 +8,13 @@ import Footer from "./Components/Footer component/Footer";
 import "react-toastify/dist/ReactToastify.css";
 import CursorGlow from "./Components/CursorGlow/CursorGlow";
 import Timeline from "./Components/Timeline/Timeline";
+import WhatsApp from "./Components/WhatsApp/WhatsApp";
 
 function App() {
   return (
     <div className="overflow-x-hidden">
       <CursorGlow />
+      <WhatsApp/>
       <Nav />
       <Hero />
       <About />
