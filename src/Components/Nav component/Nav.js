@@ -8,7 +8,9 @@ const Nav = () => {
   const [select, setSelect] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const menuRef = (useRef < HTMLDivElement) | (null > null);
+  // const menuRef = (useRef < HTMLDivElement) | (null > null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
